@@ -5,14 +5,14 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 
 # ----------------- Snowflake connection -----------------
+
 connection_parameters = {
-    "account": st.secrets["snowflake"]["account"],
-    "user": st.secrets["snowflake"]["user"],
-    "password": st.secrets["snowflake"]["password"],
-    "role": st.secrets["snowflake"]["role"],
-    "warehouse": st.secrets["snowflake"]["warehouse"],
-    "database": st.secrets["snowflake"]["database"],
-    "schema": st.secrets["snowflake"]["schema"],
+    "account": st.secrets["connections"]["snowflake"]["account"],
+    "user": st.secrets["connections"]["snowflake"]["user"],
+    "role": st.secrets["connections"]["snowflake"]["role"],
+    "warehouse": st.secrets["connections"]["snowflake"]["warehouse"],
+    "database": st.secrets["connections"]["snowflake"]["database"],
+    "schema": st.secrets["connections"]["snowflake"]["schema"],
 }
 
 session = Session.builder.configs(connection_parameters).create()
